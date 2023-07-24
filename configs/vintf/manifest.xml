@@ -157,6 +157,11 @@
         <fqname>@2.15::IPictureQuality/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.mediatek.hardware.videotelephony</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IVideoTelephony/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.sensors</name>
         <transport>hwbinder</transport>
         <fqname>@2.1::ISensors/default</fqname>
