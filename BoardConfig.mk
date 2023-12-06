@@ -6,6 +6,7 @@
 
 DEVICE_PATH := device/infinix/X6833B
 KERNEL_PATH := $(DEVICE_PATH)-kernel
+CONFIGS_PATH := $(DEVICE_PATH)/configs
 
 # Architecture
 TARGET_ARCH := arm64
@@ -150,6 +151,9 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 3
 
 # VNDK
 BOARD_VNDK_VERSION := current
+
+# VINTF
+DEVICE_MANIFEST_FILE += $(CONFIGS_PATH)/vintf/manifest.xml
 
 # Workaround to make lineage's soong generator work
 TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
