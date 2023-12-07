@@ -116,6 +116,9 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 TARGET_BOARD_PLATFORM := mt6789
 BOARD_HAS_MTK_HARDWARE := true
 
+# Properties
+TARGET_VENDOR_PROP += $(CONFIGS_PATH)/properties/vendor.prop
+
 # Recovery
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
@@ -154,6 +157,7 @@ BOARD_VNDK_VERSION := current
 
 # VINTF
 DEVICE_MANIFEST_FILE += $(CONFIGS_PATH)/vintf/manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(CONFIGS_PATH)/vintf/framework_compatibility_matrix.xml
 
 # Workaround to make lineage's soong generator work
 TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
