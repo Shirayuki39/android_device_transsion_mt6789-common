@@ -70,6 +70,11 @@
         <fqname>@2.15::IPictureQuality/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.sensors</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.1::ISensors/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.trustonic.tee</name>
         <transport>hwbinder</transport>
         <fqname>@1.1::ITee/default</fqname>
