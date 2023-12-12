@@ -248,6 +248,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.mediatek
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator-service.transsion
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     wpa_supplicant \
