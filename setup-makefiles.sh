@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=mt6789-cpmmon
+DEVICE=mt6789-common
 VENDOR=transsion
 
 # Load extract_utils and do some sanity checks
