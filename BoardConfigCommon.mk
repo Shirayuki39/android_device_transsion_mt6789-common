@@ -4,9 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/infinix/X6833B
-KERNEL_PATH := $(DEVICE_PATH)-kernel
-CONFIGS_PATH := $(DEVICE_PATH)/configs
+COMMON_PATH := device/transsion/mt6789-common
+CONFIGS_PATH := $(COMMON_PATH)/configs
 
 # Architecture
 TARGET_ARCH := arm64
@@ -46,7 +45,7 @@ BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := x6833b
+TARGET_BOOTLOADER_BOARD_NAME := transsion-mt6789
 TARGET_NO_BOOTLOADER := true
 
 # Broken Rules
@@ -133,7 +132,7 @@ BOARD_HAS_MTK_HARDWARE := true
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := /proc/gesture_function
-TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
+TARGET_POWERHAL_MODE_EXT := $(COMMON_PATH)/power/power-mode.cpp
 
 # Properties
 TARGET_SYSTEM_PROP += $(CONFIGS_PATH)/properties/system.prop
@@ -142,15 +141,12 @@ TARGET_VENDOR_PROP += $(CONFIGS_PATH)/properties/vendor.prop
 # Recovery
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6789
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.mt6789
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_F2FS := true
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
-
-# OTA assert
-TARGET_OTA_ASSERT_DEVICE := X6833B,Infinix-X6833B
 
 # Vendor Security Patch
 VENDOR_SECURITY_PATCH := 2023-10-05
@@ -202,5 +198,3 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 # Workaround to make lineage's soong generator work
 TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 
-# Inherit the proprietary files
-include vendor/infinix/X6833B/BoardConfigVendor.mk
